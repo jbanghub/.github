@@ -1,0 +1,20 @@
+## JBangHub - Unleashing the Java community
+
+Work in progress on creating a set of default catalogs of scripts and resources
+for https://jbang.dev[jbang.dev].
+
+## Goals
+
+Provide a set of default catalogs of scripts and resources for jbang.
+Allowing easy discovery and use of scripts, applications and templates.
+
+## Who can contribute
+
+Anyone can contribute to the catalogs. We are looking for contributions of scripts, applications and templates.
+
+
+
+
+
+
+
