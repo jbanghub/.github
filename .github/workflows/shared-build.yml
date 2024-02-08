@@ -20,5 +20,5 @@ jobs:
     - name: Run JBang Tester
       run: |
         jbang trust add https://github.com/jbanghub/.github
-        jbang https://github.com/jbanghub/.github/.github/tester.java
+        jbang https://github.com/jbanghub/.github/blob/main/.github/tester.java
 
