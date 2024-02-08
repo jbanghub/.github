@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  build:
+  bughild:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +17,8 @@ jobs:
     - name: Install jq
       run: sudo apt-get install jq
 
-    - name: Run JBang Builds
-      run: bash .github/test.sh
+    - name: Run JBang Tester
+      run: |
+        jbang trust add https://github.com/jbanghub/.github
+        jbang https://github.com/jbanghub/.github/.github/tester.java
 
