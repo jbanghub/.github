@@ -12,8 +12,23 @@ Allowing easy discovery and use of scripts, applications and templates.
 
 Anyone can contribute to the catalogs. We are looking for contributions of scripts, applications and templates.
 
+## How to contribute a new repository to jbanghub org?
 
+Create a catalog using `jbang init -t=jbang-catalog reponame` where reponame is replaced with the name of the repo you wish to use.
 
+Important to use that template as it setups basic testing + dependency updates to easy maintanence.
+
+Then push that repo to your github accont and open discussion on https://github.com/orgs/jbanghub/discussions to get it copied/moved to jbanghub org.
+
+Thats all there is to it. We'll automate this more in future when need be.
+
+## How to contribute a new catalog in jbanghub catalog?
+
+If you have a catalog you believe is relevant/essential to have listed in the default `jbang catalog list` make a PR on https://github.com/jbanghub/jbang-catalog with your repository with some background info.
+
+Make sure you use the same alias name as your repository will be available under using jbang without a catalog, i.e. https://github.com/maxandersen/jbang-catalog is by default available as `maxandersen`. 
+
+We generally will accept any interesting or useful catalog - we do take the liberty to prune/decline catalogs that are malicious or noisy/bad examples.
 
 
 
