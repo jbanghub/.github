@@ -2,6 +2,10 @@ name: build
 
 on:
   workflow_call:
+    inputs:
+      jbang-trust-add:
+        type: string
+        default: ""
 
 jobs:
   bughild:
@@ -13,6 +17,11 @@ jobs:
 
     - name: Setup JBang
       uses: jbangdev/setup-jbang@main
+
+    - name: Add trust
+      if: inputs.jbang-trust-add != ''
+      run: |
+        jbang trust add ${{ inputs.jbang-trust-add }}
 
     - name: Install jq
       run: sudo apt-get install jq
