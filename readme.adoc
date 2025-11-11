@@ -1,0 +1,12 @@
+# Shared config for jbanghub
+
+This is a shared config for jbanghub repositories. It is used to configure Renovate for all jbanghub repositories.
+
+To test default.json with Renovate locally, run:
+
+```
+RENOVATE_CONFIG_FILE=default.json npx renovate --token=githubtoken --schedule="" --require-config=ignore --dry-run=full jbanghub/allure
+```
+
+See more at https://dev.to/corrupt952/debugging-renovate-locally-4k8
+
