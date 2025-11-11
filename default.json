@@ -22,8 +22,8 @@
         "/.?jbang-catalog.json/"
       ],
       "matchStrings": [
-        "\"(?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})(?<suffix>(?::[^ @]+)?(?:@\\w+)?)?\"",
-        "\"(?<depName>\\S+:\\S+):(?<currentValue>[^$:@\\s]+)(?<suffix>(?::[^@\\s]+)?(?:@\\w+)?)?\""
+        "\"(?<depName>[^\"\\s]+):(\\${\\S+:(?<currentValue>[^\" }]+)})(?<suffix>(?::[^\" @]+)?(?:@\\w+)?)?\"",
+        "\"(?<depName>[^\"\\s]+:[^\"\\s]+):(?<currentValue>[^\"$:@\\s]+)(?<suffix>(?::[^\"@\\s]+)?(?:@\\w+)?)?\""
       ],
       "datasourceTemplate": "maven",
       "autoReplaceStringTemplate": "{{depName}}:{{newValue}}{{suffix}}"
