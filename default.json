@@ -1,11 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": "\\.java",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/\\.java/"
+      ],
       "matchStrings": [
         "//DEPS (?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})(?<suffix>(?::[^ @]+)?(?:@\\w+)?)?",
         "//DEPS (?<depName>\\S+:\\S+):(?<currentValue>[^$:@\\s]+)(?<suffix>(?::[^@\\s]+)?(?:@\\w+)?)?"
@@ -14,7 +17,10 @@
       "autoReplaceStringTemplate": "{{depName}}:{{newValue}}{{suffix}}"
     },
     {
-      "fileMatch": ".?jbang-catalog.json",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/.?jbang-catalog.json/"
+      ],
       "matchStrings": [
         "\"(?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})(?<suffix>(?::[^ @]+)?(?:@\\w+)?)?\"",
         "\"(?<depName>\\S+:\\S+):(?<currentValue>[^$:@\\s]+)(?<suffix>(?::[^@\\s]+)?(?:@\\w+)?)?\""
