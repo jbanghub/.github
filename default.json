@@ -7,18 +7,20 @@
     {
       "fileMatch": "\\.java",
       "matchStrings": [
-        "//DEPS (?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})",
-        "//DEPS ((?<depName>\\S+:\\S+):(?<currentValue>[^$]\\S+))(\\@\\w+)?"
+        "//DEPS (?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})(?<suffix>(?::[^ @]+)?(?:@\\w+)?)?",
+        "//DEPS (?<depName>\\S+:\\S+):(?<currentValue>[^$:@\\s]+)(?<suffix>(?::[^@\\s]+)?(?:@\\w+)?)?"
       ],
-      "datasourceTemplate": "maven"
+      "datasourceTemplate": "maven",
+      "autoReplaceStringTemplate": "{{depName}}:{{newValue}}{{suffix}}"
     },
     {
       "fileMatch": ".?jbang-catalog.json",
       "matchStrings": [
-        "\"(?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})\"",
-        "\"((?<depName>\\S+:\\S+):(?<currentValue>[^$]\\S+))(\\@\\w+)?\""
+        "\"(?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})(?<suffix>(?::[^ @]+)?(?:@\\w+)?)?\"",
+        "\"(?<depName>\\S+:\\S+):(?<currentValue>[^$:@\\s]+)(?<suffix>(?::[^@\\s]+)?(?:@\\w+)?)?\""
       ],
-      "datasourceTemplate": "maven"
+      "datasourceTemplate": "maven",
+      "autoReplaceStringTemplate": "{{depName}}:{{newValue}}{{suffix}}"
     }
   ]
 }
