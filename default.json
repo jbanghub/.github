@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base"
   ],
   "customManagers": [
     {
@@ -9,9 +9,10 @@
       "managerFilePatterns": [
         "/\\.java/"
       ],
+      "depNameTemplate": "{{group}}:{{artifact}}{{#if classifier}}:{{classifier}}{{/if}}",
       "matchStrings": [
-        "//DEPS (?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})",
-        "//DEPS ((?<depName>\\S+:\\S+):(?<currentValue>[^$]\\S+))(\\@\\w+)?"
+        "//DEPS (?<group>[^:\\s]+):(?<artifact>[^:\\s]+):(\\${[^:}]+:(?<currentValue>[^ }]+)})(:(?<classifier>[^\\s@]+))?(\\@(?<type>\\w+))?",
+        "//DEPS (?<group>[^:\\s]+):(?<artifact>[^:\\s]+):(?<currentValue>[^\\s:@$]+)(:(?<classifier>[^\\s@]+))?(\\@(?<type>\\w+))?"
       ],
       "datasourceTemplate": "maven"
     },
@@ -20,9 +21,10 @@
       "managerFilePatterns": [
         "/.?jbang-catalog.json/"
       ],
+      "depNameTemplate": "{{group}}:{{artifact}}{{#if classifier}}:{{classifier}}{{/if}}",
       "matchStrings": [
-        "\"(?<depName>\\S+):(\\${\\S+:(?<currentValue>[^ }]+)})\"",
-        "\"((?<depName>\\S+:\\S+):(?<currentValue>[^$]\\S+))(\\@\\w+)?\""
+        "\"(?<group>[^:\\s\"]+):(?<artifact>[^:\\s\"]+):(\\${[^:}]+:(?<currentValue>[^ }]+)})(:(?<classifier>[^\\s\"@]+))?(\\@(?<type>\\w+))?\"",
+        "\"(?<group>[^:\\s\"]+):(?<artifact>[^:\\s\"]+):(?<currentValue>[^\\s\"@$:]+)(:(?<classifier>[^\\s\"@]+))?(\\@(?<type>\\w+))?\""
       ],
       "datasourceTemplate": "maven"
     }
